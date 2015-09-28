@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Things To Do</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- <script src="libs/angular-resource.js"></script> -->
+
+  </head>
+  <body>
+    <div ng-controller="SimpleController" class="container">
+
+      {{ greeting }}<br>
+
+        Name:<br>
+        <input type="text" data-ng-model="name"><br>
+
+        <ul>
+          <li data-ng-repeat="cust in customers | filter:name | orderBy:city ">
+            {{ cust.name }} - {{ cust.city }}
+          </li>
+        </ul>
+
+    </div>
+
+    <script src="angular.min.js"></script>
+
+    <script>
+      angular.module('myApp', []).controller('SimpleController', function($scope){
+        $scope.greeting = 'Hello!';
+        $scope.customers = [
+          {name:'Dave',city:'Phoenix'},
+          {name:'Napur',city:'New York'},
+          {name:'Heedy',city:'New York'},
+          {name:'Shriva',city:'Dallas'}
+        ];
+      });
+    </script>
+
+  </body>
+</html>
