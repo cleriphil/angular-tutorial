@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="myApp">
+<html data-ng-app="demoApp">
   <head>
     <meta charset="utf-8">
     <title>Things To Do</title>
@@ -26,7 +26,8 @@
     <script src="angular.min.js"></script>
 
     <script>
-      angular.module('myApp', []).controller('SimpleController', function($scope){
+      var demoApp = angular.module('demoApp', []);
+      angular.module('demoApp', []).controller('SimpleController', function($scope){
         $scope.greeting = 'Hello!';
         $scope.customers = [
           {name:'Dave',city:'Phoenix'},
@@ -35,6 +36,7 @@
           {name:'Shriva',city:'Dallas'}
         ];
       });
+      demoApp.controller('SimpleController', simpleController);
     </script>
 
   </body>
